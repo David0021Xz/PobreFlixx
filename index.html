@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu de Filmes e Séries</title>
+
+  <!-- ESTILO PARA MENU SUPERIOR -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+    }
+    .menu {
+      background-color: #000;
+      padding: 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      color: #fff;
+    }
+    .menu a {
+      text-decoration: none;
+      color: #fff;
+      padding: 10px 20px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .menu a:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background-color: transparent;
+      transition: width 0.3s ease;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .menu a:hover:after,
+    .menu a.active:after {
+      width: 100%;
+      background-color: red;
+    }
+  </style>
+
+  <!-- ESTILO PARA CARROSSEL DE IMAGENS -->
+  <style>
+    .carousel-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      margin-top: 20px; /* margem para separar os carrosséis */
+    }
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-item {
+      flex: 0 0 auto;
+      width: 100%;
+      min-width: 100%;
+    }
+    .carousel img {
+      width: 100%;
+      height: auto;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1;
+    }
+    .prev, .next {
+      z-index: 2; 
+    }
+    .prev {
+      left: 0;
+    }
+    .next {
+      right: 0;
+    }
+  </style>
+
+  <!-- ESTILO PARA O SEGUNDO CARROSSEL -->
+  <style>
+    .carousel2 {
+      width: 80%;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+      margin-top: 20px; /* margem para separar os carrosséis */
+    }
+
+    .carousel-inner2 {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-item2 {
+      flex: 0 0 25%;
+      margin-right: 10px;
+      width: 200px; /* Ajuste a largura conforme necessário */
+      height: 200px; /* Mantém a proporção da altura */
+    }
+
+    .carousel-item2 img {
+      width: 120px; /* Largura em pixels */
+      height: 160px; /* Altura em pixels */
+    }
+
+    .carousel-nav2 {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .carousel-prev2 {
+      left: 0;
+    }
+
+    .carousel-next2 {
+      right: 0;
+    }
+  </style>
+
+  <!-- ESTILO PARA O TERCEIRO CARROSSEL -->
+  <style>
+    .carousel3 {
+      width: 80%;
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+      margin-top: 20px; /* margem para separar os carrosséis */
+    }
+
+    .carousel-inner3 {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-item3 {
+      flex: 0 0 25%;
+      margin-right: 10px;
+      width: 200px; /* Ajuste a largura conforme necessário */
+      height: 200px; /* Mantém a proporção da altura */
+    }
+
+    .carousel-item3 img {
+      width: 120px; /* Largura em pixels */
+      height: 160px; /* Altura em pixels */
+    }
+
+    .carousel-nav3 {
+      position: absolute;
+     
+top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .carousel-prev3 {
+      left: 0;
+    }
+
+    .carousel-next3 {
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu">
+    <a href="#" class="active">Todos</a>
+    <a href="#">Filmes</a>
+    <a href="#">Séries</a>
+  </div>
+
+  <!-- PRIMEIRO CARROSSEL -->
+  <div class="carousel-container">
+    <div class="carousel">
+      <div class="carousel-item">
+        <a href="https://rkplayer.com/e/tt15314262">
+          <img src="beekeeper.jpg" alt="Imagem 1">
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a href="https://rkplayer.com/e/tt0252866">
+          <img src="american pie a segunda vez é ainda melhor.jpg" alt="Imagem 2">
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a href="https://rkplayer.com/e/tt5433140">
+          <img src="velozes e furiosos 10.jpg" alt="Imagem 3">
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a href="https://rkplayer.com/e/tt10366206">
+          <img src="John Wick 4.jpg" alt="Imagem 4">
+        </a>
+      </div>
+    </div>
+    <div class="carousel-btn prev" onclick="moveSlide(-1)">❮</div>
+    <div class="carousel-btn next" onclick="moveSlide(1)">❯</div>
+  </div>
+
+  <h4><font color="red">PobreFlix</font> <font color="white">- Recomendados</font></h4>
+
+  <!-- SEGUNDO CARROSSEL -->
+  <div class="carousel2">
+    <div class="carousel-inner2">
+      <div class="carousel-item2">
+        <a href="https://rkplayer.com/e/tt12261776">
+          <img src="65 ameaça pré historiaca.jpg" alt="Filme 1" width="70" height="190">
+        </a>
+      </div>
+      <div class="carousel-item2">
+        <a href="https://rkplayer.com/e/tt12921446">
+          <img src="o exorcista o devoto.png" alt="Filme 2">
+        </a>
+      </div>
+      <div class="carousel-item2">
+        <a href="https://rkplayer.com/e/tt14997890">
+          <img src="jogo do disfarce.jpg" alt="Filme 3">
+        </a>
+      </div>
+      <div class="carousel-item2">
+        <a href="https://rkplayer.com/e/tt5537002">
+          <img src="o assasino da rua das flores.jpg" alt="Filme 4">
+        </a>
+      </div>
+      <div class="carousel-item2">
+        <a href="https://rkplayer.com/e/tt14537248">
+          <img src="nerfarius.jpg" alt="Filme 5">
+        </a>
+      </div>
+      <div class="carousel-item2">
+        <a href="https://rkplayer.com/e/tt15398776">
+          <img src="Oppenheimer.jpeg" alt="Filme 6">
+        </a>
+      </div>
+      <div class="carousel-item2">
+        <a href="https://rkplayer.com/e/tt27197387">
+          <img src="agente infiltrado.jpg" alt="Filme 7">
+        </a>
+      </div>
+      <div class="carousel-item2">
+        <a href="https://rkplayer.com/e/tt18925334#MA==">
+          <img src="pear.jpg" alt="Filme 8">
+        </a>
+      </div>
+      <div class="carousel-item2">
+        <a href="https://rkplayer.com/e/tt14537248">
+          <img src="nerfarius.jpg" alt="Filme 9">
+        </a>
+      </div>
+    </div>
+    <div class="carousel-nav2 carousel-prev2">&#10094;</div>
+    <div class="carousel-nav2 carousel-next2">&#10095;</div>
+  </div>
+
+  <!-- TERCEIRO CARROSSEL -->
+  <h4><font color="red">Coleção</font> <font color="white">- American Pie</font></h4>
+  <div class="carousel3">
+    <div class="carousel-inner3">
+      <div class="carousel-item3">
+        <a href="https://rkplayer.com/e/tt0163651">
+          <img src="america pie 1.jpg" alt="Filme 1" width="70" height="190">
+        </a>
+      </div>
+      <div class="carousel-item3">
+        <a href="https://rkplayer.com/e/tt0252866">
+          <img src="american pie 2.jpg" alt="Filme 2">
+        </a>
+      </div>
+      <div class="carousel-item3">
+        <a href="https://rkplayer.com/e/tt0328828">
+          <img src="american-pie-3-o-casamento.jpeg" alt="Filme 3">
+        </a>
+      </div>
+      <div class="carousel-item3">
+        <a href="https://rkplayer.com/e/tt0252866">
+          <img src="american pie4.jpg" alt="Filme 4">
+        </a>
+      </div>
+
+<div class="carousel-item3">
+        <a href="https://rkplayer.com/e/tt0808146">
+          <img src="american pie5.jpg" alt="Filme 4">
+        </a>
+      </div>
+
+
+    </div>
+    <div class="carousel-nav3 carousel-prev3">&#10094;</div>
+    <div class="carousel-nav3 carousel-next3">&#10095;</div>
+  </div>
+
+  <!-- SCRIPT PARA O FUNCIONAMENTO DO PRIMEIRO CARROSSEL -->
+  <script>
+    let slideIndex = 0;
+
+    function moveSlide(n) {
+      const slides = document.querySelectorAll('.carousel-item');
+      slideIndex += n;
+      if (slideIndex >= slides.length) {
+        slideIndex = 0;
+      }
+      if (slideIndex < 0) {
+        slideIndex = slides.length - 1;
+      }
+      const offset = -slideIndex * 100;
+     
+document.querySelector('.carousel').style.transform = `translateX(${offset}%)`;
+    }
+  </script>
+
+  <!-- SCRIPT PARA O FUNCIONAMENTO DO SEGUNDO CARROSSEL -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const carouselInner = document.querySelector('.carousel-inner2');
+      const prevBtn = document.querySelector('.carousel-prev2');
+      const nextBtn = document.querySelector('.carousel-next2');
+
+      function moveToRight() {
+        carouselInner.style.transform = 'translateX(-25%)';
+        carouselInner.appendChild(carouselInner.firstElementChild);
+      }
+
+      function moveToLeft() {
+        carouselInner.style.transform = 'translateX(0)';
+        carouselInner.insertBefore(carouselInner.lastElementChild, carouselInner.firstElementChild);
+      }
+
+      nextBtn.addEventListener('click', moveToRight);
+      prevBtn.addEventListener('click', moveToLeft);
+    });
+  </script>
+
+  <!-- SCRIPT PARA O FUNCIONAMENTO DO TERCEIRO CARROSSEL -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const carouselInner = document.querySelector('.carousel-inner3');
+      const prevBtn = document.querySelector('.carousel-prev3');
+      const nextBtn = document.querySelector('.carousel-next3');
+
+      function moveToRight() {
+        carouselInner.style.transform = 'translateX(-25%)';
+        carouselInner.appendChild(carouselInner.firstElementChild);
+      }
+
+      function moveToLeft() {
+        carouselInner.style.transform = 'translateX(0)';
+        carouselInner.insertBefore(carouselInner.lastElementChild, carouselInner.firstElementChild);
+      }
+
+      nextBtn.addEventListener('click', moveToRight);
+      prevBtn.addEventListener('click', moveToLeft);
+    });
+  </script>
+</body>
+</html>
